@@ -6,6 +6,11 @@
     $: todos = data.todos.result1
     $: tasks_today = data.tasksToday
     console.log(todos)
+
+    const now = new Date();
+
+    const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+    const endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1).getTime() - 1;
   
     // Simulated todo data (replace this with actual data fetching logic)
 
@@ -46,6 +51,8 @@
   
     <div class="bg-white shadow-md rounded-lg p-6">
       <h3 class="text-xl font-semibold mb-4">Agregar tarea</h3>
+      Inicio del día:{startOfDay}
+      Fin del día: {endOfDay}
       <form method="POST" action="?/crear" class="space-y-4">
         <div>
           <label for="todoName" class="block text-sm font-medium text-gray-700">Nombre de la tarea</label>
