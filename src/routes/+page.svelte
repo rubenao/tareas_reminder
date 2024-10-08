@@ -38,7 +38,7 @@
                 class="form-checkbox h-5 w-5 text-blue-600"
               />
               <span>
-                {todo.nombre_tarea}
+                {todo.id} - {todo.nombre_tarea}
               </span>
               <span class="text-sm text-gray-500">
                 ({new Date(todo.reminder).toLocaleString('es-PE', { month: 'long', day: 'numeric' , hour: '2-digit',minute: '2-digit'} )})
