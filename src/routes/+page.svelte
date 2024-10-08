@@ -13,6 +13,20 @@
     const endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1).getTime() - 1;
 
     const dia_unix = Math.floor(now.getTime())
+
+    // Variables reactivas
+  let selectedDate = '';      // Fecha seleccionada en formato de fecha
+  let unixTimestamp = '';     // Timestamp Unix correspondiente
+
+  // Función para actualizar el Unix timestamp cuando se cambia la fecha
+  function updateUnixTimestamp() {
+    if (selectedDate) {
+      const date = new Date(selectedDate);
+      unixTimestamp = Math.floor(date.getTime() / 1000); // Convertir a Unix timestamp
+    } else {
+      unixTimestamp = ''; // Limpiar si no hay fecha
+    }
+  }
   
     // Simulated todo data (replace this with actual data fetching logic)
 
@@ -79,8 +93,19 @@
             required
             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
             name="reminder"
+            bind:value={selectedDate}
+            on:input={updateUnixTimestamp}
           />
         </div>
+
+                    <!-- Input que muestra el valor en formato Unix -->
+            <label for="unix">Fecha en formato Unix:</label>
+            <input
+                type="text"
+                id="unix"
+                value={unixTimestamp}
+                readonly
+            />
         <button
           type="submit"
           class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
