@@ -78,7 +78,7 @@ export const actions = {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({nombre_tarea, reminder:unixTimestamp})
+            body: JSON.stringify({nombre_tarea, reminder})
         });
 
 
