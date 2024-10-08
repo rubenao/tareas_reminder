@@ -44,6 +44,8 @@
               </span>
               <span class="text-sm text-gray-500">
                 ({new Date(todo.reminder).toLocaleString('es-PE', { month: 'long', day: 'numeric' , hour: '2-digit',minute: '2-digit'} )})
+
+                {todo.reminder}
               </span>
             </li>
           {/each}
