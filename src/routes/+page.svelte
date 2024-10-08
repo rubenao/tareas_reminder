@@ -22,7 +22,7 @@
   function updateUnixTimestamp() {
     if (selectedDate) {
       const date = new Date(selectedDate);
-      unixTimestamp = Math.floor(date.getTime() / 1000); // Convertir a Unix timestamp
+      unixTimestamp = Math.floor(date.getTime()); // Convertir a Unix timestamp
     } else {
       unixTimestamp = ''; // Limpiar si no hay fecha
     }

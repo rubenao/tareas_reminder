@@ -43,7 +43,7 @@ export async function load(){
     const todos = await res.json()
     console.log(todos.result1)
 
-    const tasksToday = todos.result1.filter(task => task.reminder >= startOfDay && task.reminder <= endOfDay);
+    const tasksToday = todos.result1.filter(task => task.reminder > startOfDay && task.reminder < endOfDay);
     console.log(tasksToday)
  
 
