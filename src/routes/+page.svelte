@@ -6,6 +6,7 @@
     $: todos = data.todos.result1
     $: tasks_today = data.tasksToday
     console.log(todos)
+    console.log(tasks_today)
 
     const now = new Date();
 
@@ -47,6 +48,7 @@
         <p class="text-gray-500">No hay tareas, crea una!</p>
       {:else}
         <ul class="space-y-2">
+            {tasks_today}
           {#each tasks_today as todo}
             <li class="flex items-center space-x-2">
               <input
