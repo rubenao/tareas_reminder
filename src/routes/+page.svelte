@@ -52,6 +52,7 @@
     <div class="bg-white shadow-md rounded-lg p-6">
       <h3 class="text-xl font-semibold mb-4">Agregar tarea</h3>
       Inicio del día:{startOfDay}
+      ahora: {now}
       Fin del día: {endOfDay}
       <form method="POST" action="?/crear" class="space-y-4">
         <div>
