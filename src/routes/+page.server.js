@@ -70,6 +70,10 @@ export const actions = {
         const nombre_tarea = formData.get('nombre_tarea')
         const reminder = formData.get('reminder')
 
+        const date = new Date(reminder)
+
+        const nueva_fecha = Math.floor(date.getTime())
+
         const unixTimestamp = convertToUnix(reminder);
         console.log(unixTimestamp)
 
@@ -78,7 +82,7 @@ export const actions = {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({nombre_tarea, reminder})
+            body: JSON.stringify({nombre_tarea, reminder:nueva_fecha})
         });
 
 
