@@ -48,20 +48,18 @@
         <p class="text-gray-500">No hay tareas, crea una!</p>
       {:else}
         <ul class="space-y-2">
-            {tasks_today}
-          {#each tasks_today as todo}
+          {#each todos as todo}
             <li class="flex items-center space-x-2">
               <input
                 type="checkbox"
                 class="form-checkbox h-5 w-5 text-blue-600"
               />
               <span>
-                {todo.id} - {todo.nombre_tarea}
+                {todo.nombre_tarea}
               </span>
               <span class="text-sm text-gray-500">
                 ({new Date(todo.reminder).toLocaleString('es-PE', { month: 'long', day: 'numeric' , hour: '2-digit',minute: '2-digit'} )})
 
-                {todo.reminder}
               </span>
             </li>
           {/each}
@@ -71,11 +69,7 @@
   
     <div class="bg-white shadow-md rounded-lg p-6">
       <h3 class="text-xl font-semibold mb-4">Agregar tarea</h3>
-      Inicio del día:{startOfDay}
-      ahora: {now}
-      Fin del día: {endOfDay}
-
-      dia unix: {dia_unix}
+  
       <form method="POST" action="?/crear" class="space-y-4">
         <div>
           <label for="todoName" class="block text-sm font-medium text-gray-700">Nombre de la tarea</label>
@@ -83,7 +77,7 @@
             type="text"
             id="todoName"
             required
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 p-2"
             name="nombre_tarea"
           />
         </div>
@@ -93,21 +87,21 @@
             type="datetime-local"
             id="todoReminder"
             required
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+            class="mt-1 block w-48 rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 p-2"
             name="reminder"
             bind:value={selectedDate}
             on:input={updateUnixTimestamp}
           />
         </div>
 
-                    <!-- Input que muestra el valor en formato Unix -->
+                    <!-- Input que muestra el valor en formato Unix 
             <label for="unix">Fecha en formato Unix:</label>
             <input
                 type="text"
                 id="unix"
                 value={unixTimestamp}
                 readonly
-            />
+            />-->
         <button
           type="submit"
           class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
